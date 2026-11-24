@@ -1,0 +1,5 @@
+<div class="lm-product-tools">
+  <button type="button" class="lm-text-link" data-lm-open="lm-size-guide">{% render 'lumora-icon', name: 'ruler' %} Encontre seu tamanho</button>
+  <button type="button" class="lm-text-link" data-lm-favorite hidden data-lm-js data-handle="{{ product.handle | escape }}" data-title="{{ product.title | escape }}" data-url="{{ product.url | escape }}" data-image="{% if product.featured_image %}{{ product.featured_image | image_url: width: 300 }}{% endif %}" data-price="{{ product.price | money | escape }}" aria-label="Salvar {{ product.title | escape }} nos favoritos" aria-pressed="false">{% render 'lumora-icon', name: 'heart' %} Favoritar</button>
+</div>
+<div class="lm-product-promises"><span>{% render 'lumora-icon', name: 'truck' %} {{ settings.lumora_shipping_notice | escape }}</span><span>{% render 'lumora-icon', name: 'shield' %} Pagamento no checkout Shopify</span></div>

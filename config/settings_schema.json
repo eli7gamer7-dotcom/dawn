@@ -1,8 +1,8 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Dawn",
-    "theme_version": "16.2.0",
+    "theme_name": "Lumora Activewear",
+    "theme_version": "1.0.0",
     "theme_author": "Shopify",
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://support.shopify.com/"
@@ -1464,6 +1464,75 @@
         "id": "customer_account_menu",
         "default": "customer-account-main-menu",
         "label": "t:settings_schema.customer_accounts.settings.customer_account_menu.label"
+      }
+    ]
+  },
+  {
+    "name": "Lumora · Loja fitness",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Identidade"
+      },
+      {
+        "type": "text",
+        "id": "lumora_brand_name",
+        "label": "Nome da marca",
+        "default": "LUMORA"
+      },
+      {
+        "type": "text",
+        "id": "lumora_brand_tagline",
+        "label": "Complemento da marca",
+        "default": "ACTIVEWEAR"
+      },
+      {
+        "type": "image_picker",
+        "id": "lumora_logo",
+        "label": "Logo personalizada"
+      },
+      {
+        "type": "header",
+        "content": "Atendimento e informações"
+      },
+      {
+        "type": "text",
+        "id": "lumora_contact_email",
+        "label": "E-mail público de atendimento"
+      },
+      {
+        "type": "text",
+        "id": "lumora_whatsapp",
+        "label": "WhatsApp com DDI e DDD",
+        "info": "Somente números. Exemplo de formato: 5574999999999."
+      },
+      {
+        "type": "text",
+        "id": "lumora_business_details",
+        "label": "Dados da empresa",
+        "info": "Informe razão social, CNPJ e endereço comercial reais."
+      },
+      {
+        "type": "text",
+        "id": "lumora_shipping_notice",
+        "label": "Informação de entrega",
+        "default": "Frete e prazo calculados no checkout"
+      },
+      {
+        "type": "header",
+        "content": "Guia de tamanhos"
+      },
+      {
+        "type": "page",
+        "id": "lumora_size_guide_page",
+        "label": "Página com o guia de tamanhos",
+        "info": "O metafield custom.size_guide do produto tem prioridade sobre o guia geral."
+      },
+      {
+        "type": "textarea",
+        "id": "lumora_size_rows",
+        "label": "Tabela geral de medidas (cm)",
+        "info": "Use apenas medidas reais do fornecedor. Uma linha por tamanho: tamanho;busto;cintura;quadril. Sem cabeçalho."
       }
     ]
   }

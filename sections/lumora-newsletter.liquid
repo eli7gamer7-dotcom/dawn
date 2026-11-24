@@ -1,0 +1,16 @@
+<section class="lm-newsletter lm-container" aria-labelledby="lm-newsletter-title-{{ section.id }}">
+  <div class="lm-newsletter-inner">
+    <span class="lm-newsletter-icon">{% render 'lumora-icon', name: 'mail' %}</span>
+    <div class="lm-newsletter-copy"><h2 id="lm-newsletter-title-{{ section.id }}">{{ section.settings.title | escape }}</h2><p>{{ section.settings.text | escape }}</p></div>
+    {% capture newsletter_id %}lm-newsletter-{{ section.id }}{% endcapture %}
+    {% form 'customer', id: newsletter_id, class: 'lm-newsletter-form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <div class="lm-newsletter-field"><label class="visually-hidden" for="lm-email-{{ section.id }}">Seu e-mail</label><input id="lm-email-{{ section.id }}" type="email" name="contact[email]" placeholder="Seu melhor e-mail" autocomplete="email" autocorrect="off" autocapitalize="off" required {% if form.errors %}aria-invalid="true" aria-describedby="lm-newsletter-error-{{ section.id }}"{% endif %}><button type="submit">Quero fazer parte {% render 'lumora-icon', name: 'arrow' %}</button></div>
+      <label class="lm-consent"><input type="checkbox" name="contact[accepts_marketing]" value="true" required> Quero receber novidades e ofertas por e-mail.{% if shop.privacy_policy != blank %} <a href="{{ shop.privacy_policy.url }}">Privacidade</a>{% endif %}</label>
+      {% if form.posted_successfully? %}<p class="lm-form-message" role="status" tabindex="-1">Pronto! Você já faz parte do nosso movimento.</p>{% elsif form.errors %}<div id="lm-newsletter-error-{{ section.id }}" class="lm-form-message" role="alert">{{ form.errors | default_errors }}</div>{% endif %}
+    {% endform %}
+  </div>
+</section>
+{% schema %}
+{"name":"Lumora · Newsletter","settings":[{"type":"text","id":"title","label":"Título","default":"FAÇA PARTE DO MOVIMENTO."},{"type":"text","id":"text","label":"Descrição","default":"Novas coleções, inspirações e novidades no seu e-mail."}],"presets":[{"name":"Lumora · Newsletter"}],"disabled_on":{"groups":["header","footer"]}}
+{% endschema %}

@@ -1,0 +1,51 @@
+<header class="lm-header{% if template.name == 'index' %} lm-header--home{% endif %}">
+  <div class="lm-header-inner">
+    <details class="lm-mobile-menu">
+      <summary class="lm-icon-button" aria-label="Abrir menu">{% render 'lumora-icon', name: 'menu' %}</summary>
+      <nav class="lm-mobile-links" aria-label="Menu principal móvel">
+        <a href="{{ routes.all_products_collection_url }}">Todas as peças</a>
+        <a href="{{ routes.root_url }}#lm-collections">Coleções</a>
+        <a href="{{ routes.root_url }}#lm-about">Nossa essência</a>
+        <a href="{{ routes.root_url }}#lm-faq">Dúvidas frequentes</a>
+        <button type="button" data-lm-open="lm-size-guide">Guia de tamanhos</button>
+        <button type="button" data-lm-open="lm-contact">Fale com a gente</button>
+      </nav>
+    </details>
+    <a class="lm-brand" href="{{ routes.root_url }}" aria-label="{{ settings.lumora_brand_name | default: 'Lumora' | escape }} — início">
+      {% if settings.lumora_logo != blank %}
+        {{ settings.lumora_logo | image_url: width: 440 | image_tag: class: 'lm-logo-image', widths: '180, 220, 440', sizes: '220px', alt: shop.name }}
+      {% else %}{% render 'lumora-brand' %}{% endif %}
+    </a>
+    <nav class="lm-desktop-nav" aria-label="Menu principal">
+      {% if section.settings.menu != blank %}
+        {% for link in section.settings.menu.links %}
+          {% if link.links != blank %}
+            <details class="lm-nav-dropdown"><summary>{{ link.title | escape }} <span>⌄</span></summary><div>{% for child in link.links %}<a href="{{ child.url }}"{% if child.current %} aria-current="page"{% endif %}>{{ child.title | escape }}</a>{% endfor %}</div></details>
+          {% else %}<a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title | escape }}</a>{% endif %}
+        {% endfor %}
+      {% else %}
+        <a href="{{ routes.all_products_collection_url }}">Comprar <span>⌄</span></a>
+        <a href="{{ routes.all_products_collection_url }}?sort_by=created-descending">Novidades</a>
+        <a href="{{ routes.root_url }}#lm-collections">Coleções</a>
+        <a href="{{ routes.root_url }}#lm-about">Sobre nós</a>
+      {% endif %}
+    </nav>
+    <div class="lm-header-actions">
+      <details class="lm-search-popover">
+        <summary class="lm-icon-button" aria-label="Abrir busca">{% render 'lumora-icon', name: 'search' %}</summary>
+        <form action="{{ routes.search_url }}" method="get" role="search" class="lm-search">
+          <label class="visually-hidden" for="lm-header-search">Buscar produtos</label>
+          <input id="lm-header-search" type="search" name="q" placeholder="O que você procura?" required>
+          <input type="hidden" name="type" value="product">
+          <button class="lm-icon-button" aria-label="Buscar">{% render 'lumora-icon', name: 'search' %}</button>
+        </form>
+      </details>
+      {% if shop.customer_accounts_enabled %}<a class="lm-icon-button lm-account" href="{{ routes.account_url }}" aria-label="Minha conta">{% render 'lumora-icon', name: 'user' %}</a>{% endif %}
+      <button type="button" class="lm-icon-button" data-lm-open="lm-wishlist" aria-label="Meus favoritos" hidden data-lm-js>{% render 'lumora-icon', name: 'heart' %}<span data-lm-wishlist-count class="lm-count" hidden>0</span></button>
+      <a class="lm-icon-button lm-cart-link" id="cart-icon-bubble" href="{{ routes.cart_url }}" aria-label="Sacola de compras">{% render 'lumora-icon', name: 'bag' %}<span class="lm-cart-count" data-lm-cart-count>({{ cart.item_count }})</span></a>
+    </div>
+  </div>
+</header>
+{% schema %}
+{"name":"Lumora · Cabeçalho","settings":[{"type":"link_list","id":"menu","label":"Menu personalizado","info":"Sem seleção, usa os links padrão da Lumora."}],"enabled_on":{"groups":["header"]}}
+{% endschema %}

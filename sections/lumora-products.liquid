@@ -1,0 +1,29 @@
+{% liquid
+  assign featured = section.settings.collection
+  if featured == blank
+    assign featured = collections.all
+  endif
+%}
+<section class="lm-section lm-container" aria-labelledby="lm-products-title-{{ section.id }}">
+  <div class="lm-section-head">
+    <div><p class="lm-eyebrow">{{ section.settings.eyebrow | escape }}</p><h2 id="lm-products-title-{{ section.id }}">{{ section.settings.title | escape }}</h2><p>{{ section.settings.text | escape }}</p></div>
+    <div class="lm-carousel-actions"><button type="button" class="lm-icon-button" data-lm-scroll="-1" data-target="lm-products-{{ section.id }}" aria-label="Produtos anteriores" hidden data-lm-js>{% render 'lumora-icon', name: 'arrow' %}</button><button type="button" class="lm-icon-button lm-dark" data-lm-scroll="1" data-target="lm-products-{{ section.id }}" aria-label="Próximos produtos" hidden data-lm-js>{% render 'lumora-icon', name: 'arrow' %}</button></div>
+  </div>
+  <div class="lm-products-grid" id="lm-products-{{ section.id }}">
+    {% for item in featured.products limit: section.settings.limit %}
+      {% render 'lumora-product-card', card_product: item, section_id: section.id %}
+    {% else %}
+      {% assign demo_names = 'Leggings|Tops esportivos|Conjuntos|Essenciais' | split: '|' %}
+      {% for demo_name in demo_names %}
+        <article class="lm-product-card lm-editorial-card">
+          <a href="{{ routes.all_products_collection_url }}" class="lm-lookbook lm-lookbook--{{ forloop.index }}" aria-label="Explorar {{ demo_name | escape }}"><span class="lm-product-badge">Inspire-se</span></a>
+          <div class="lm-product-info"><h3>{{ demo_name }}</h3><p>Encontre seu novo movimento.</p><a class="lm-text-link" href="{{ routes.all_products_collection_url }}">Explorar peças {% render 'lumora-icon', name: 'arrow' %}</a></div>
+        </article>
+      {% endfor %}
+    {% endfor %}
+  </div>
+  {% if featured.products_count > 0 %}<a class="lm-text-link lm-view-all" href="{{ featured.url | default: routes.all_products_collection_url }}">Ver todas as peças {% render 'lumora-icon', name: 'arrow' %}</a>{% endif %}
+</section>
+{% schema %}
+{"name":"Lumora · Produtos","settings":[{"type":"text","id":"eyebrow","label":"Texto superior","default":"ENCONTRE SEU FAVORITO"},{"type":"text","id":"title","label":"Título","default":"EM MOVIMENTO"},{"type":"text","id":"text","label":"Descrição","default":"Escolha as peças que acompanham a sua rotina."},{"type":"collection","id":"collection","label":"Coleção em destaque"},{"type":"range","id":"limit","label":"Quantidade de produtos","min":4,"max":12,"step":1,"default":8}],"presets":[{"name":"Lumora · Produtos"}],"disabled_on":{"groups":["header","footer"]}}
+{% endschema %}

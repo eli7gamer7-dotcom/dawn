@@ -1,0 +1,42 @@
+<section class="lm-hero">
+  <div class="lm-hero-media">
+    {% if section.settings.image != blank %}
+      {{ section.settings.image | image_url: width: 2400 | image_tag: class: 'lm-hero-image', widths: '750, 1100, 1500, 2000, 2400', sizes: '100vw', loading: 'eager', fetchpriority: 'high', alt: section.settings.image.alt }}
+    {% else %}
+      <img class="lm-hero-image" src="{{ 'lumora-hero.png' | asset_url }}" width="1536" height="1024" alt="Mulher com conjunto fitness malva, sentada em uma escadaria ao sol" fetchpriority="high" loading="eager">
+    {% endif %}
+  </div>
+  <div class="lm-hero-shade"></div>
+  <div class="lm-hero-content lm-container">
+    <p class="lm-eyebrow lm-hero-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    <h1>{{ section.settings.heading | escape | newline_to_br }}</h1>
+    <div class="lm-hero-copy">{{ section.settings.text }}</div>
+    <form class="lm-search lm-hero-search" action="{{ routes.search_url }}" method="get" role="search">
+      <label class="visually-hidden" for="lm-hero-search-{{ section.id }}">Buscar roupas fitness</label>
+      <input id="lm-hero-search-{{ section.id }}" type="search" name="q" placeholder="Busque leggings, tops, conjuntos..." required>
+      <input type="hidden" name="type" value="product">
+      <button type="submit" class="lm-icon-button" aria-label="Buscar produtos">{% render 'lumora-icon', name: 'search' %}</button>
+    </form>
+    <span class="lm-categories-label">Encontre seu próximo favorito:</span>
+    <div class="lm-category-pills">
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.collection.url | default: routes.all_products_collection_url }}" {{ block.shopify_attributes }}>{{ block.settings.title | escape }}</a>
+      {% endfor %}
+    </div>
+    <a class="lm-hero-note" href="{{ section.settings.link | default: routes.all_products_collection_url }}">
+      <span class="lm-note-icon">{% render 'lumora-icon', name: 'leaf' %}</span>
+      <span><strong>Seu movimento começa aqui.</strong><small>Encontre peças para o seu ritmo.</small></span>
+      {% render 'lumora-icon', name: 'arrow' %}
+    </a>
+  </div>
+  <div class="lm-hero-seal" aria-hidden="true"><span>TREINE COM ALMA</span>{% render 'lumora-icon', name: 'leaf' %}<span>VIVA EM MOVIMENTO</span></div>
+  <aside class="lm-hero-benefits" aria-label="Informações da compra">
+    <div>{% render 'lumora-icon', name: 'truck' %}<span><strong>Entrega para você</strong><small>{{ settings.lumora_shipping_notice | escape }}</small></span></div>
+    <div><button type="button" data-lm-open="lm-help" aria-label="Consultar informações de trocas">{% render 'lumora-icon', name: 'return' %}<span><strong>Trocas e devoluções</strong><small>Veja as condições da loja</small></span></button></div>
+    <div>{% render 'lumora-icon', name: 'shield' %}<span><strong>Checkout Shopify</strong><small>Conclua sua compra com segurança</small></span></div>
+    <div><button type="button" data-lm-open="lm-contact">{% render 'lumora-icon', name: 'support' %}<span><strong>Precisa de ajuda?</strong><small>Fale com a nossa equipe</small></span></button></div>
+  </aside>
+</section>
+{% schema %}
+{"name":"Lumora · Destaque","settings":[{"type":"image_picker","id":"image","label":"Imagem principal"},{"type":"text","id":"eyebrow","label":"Texto superior","default":"ACTIVEWEAR PARA O SEU RITMO"},{"type":"textarea","id":"heading","label":"Título","default":"MOVA-SE MAIS.\nSINTA-SE MELHOR."},{"type":"richtext","id":"text","label":"Descrição","default":"<p>Para mulheres que encontram força no movimento. Do primeiro alongamento ao último compromisso do dia.</p>"},{"type":"url","id":"link","label":"Link do destaque inferior"}],"blocks":[{"type":"category","name":"Categoria","limit":6,"settings":[{"type":"text","id":"title","label":"Nome","default":"Leggings"},{"type":"collection","id":"collection","label":"Coleção"}]}],"presets":[{"name":"Lumora · Destaque","blocks":[{"type":"category","settings":{"title":"Leggings"}},{"type":"category","settings":{"title":"Tops"}},{"type":"category","settings":{"title":"Conjuntos"}},{"type":"category","settings":{"title":"Shorts"}},{"type":"category","settings":{"title":"Acessórios"}}]}],"disabled_on":{"groups":["header","footer"]}}
+{% endschema %}

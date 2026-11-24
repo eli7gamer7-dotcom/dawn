@@ -30,7 +30,7 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_gift_card_recipient": false
           }
         },
         "description": {
@@ -39,7 +39,27 @@
         "share": {
           "type": "share",
           "settings": {
-            "share_label": "Share"
+            "share_label": "Compartilhar"
+          }
+        },
+        "lumora_tools": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'lumora-product-tools', product: product %}"
+          }
+        },
+        "care": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Composição e cuidados",
+            "icon": "none",
+            "content": "<p>Consulte a composição na descrição do produto e siga as instruções da etiqueta. Precisa de informações sobre a peça? Fale com a nossa equipe antes de comprar.</p>"
+          }
+        },
+        "shipping": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"lm-product-tools\"><button type=\"button\" class=\"lm-text-link\" data-lm-open=\"lm-help\">{% render 'lumora-icon', name: 'return' %} Entrega, trocas e devoluções</button><button type=\"button\" class=\"lm-text-link\" data-lm-open=\"lm-contact\">{% render 'lumora-icon', name: 'support' %} Fale com a gente</button></div>"
           }
         }
       },
@@ -48,21 +68,24 @@
         "title",
         "price",
         "variant_picker",
+        "lumora_tools",
         "quantity_selector",
         "buy_buttons",
         "description",
+        "care",
+        "shipping",
         "share"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_position": "left",
-        "gallery_layout": "stacked",
-        "media_size": "large",
+        "gallery_layout": "thumbnail_slider",
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "image_zoom": "lightbox",
-        "mobile_thumbnails": "hide",
+        "mobile_thumbnails": "show",
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 36,
@@ -79,7 +102,7 @@
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "You may also like",
+        "heading": "COMBINE COM SEU MOVIMENTO",
         "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,

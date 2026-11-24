@@ -1,0 +1,10 @@
+<section class="lm-story lm-container" id="lm-about">
+  <div class="lm-story-visual">
+    {% if section.settings.image != blank %}{{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '500, 800, 1200', sizes: '(min-width: 750px) 45vw, 100vw', alt: section.settings.image.alt }}{% else %}<div class="lm-lookbook lm-lookbook--3" role="img" aria-label="Mulher em movimento com conjunto fitness verde oliva"></div>{% endif %}
+    <span class="lm-story-label">MOVE WITH PURPOSE.</span>
+  </div>
+  <div class="lm-story-content"><p class="lm-eyebrow">{{ section.settings.eyebrow | escape }}</p><h2>{{ section.settings.title | escape | newline_to_br }}</h2><div class="rte">{{ section.settings.text }}</div><a class="lm-button" href="{{ section.settings.link | default: routes.all_products_collection_url }}">{{ section.settings.button | escape }} {% render 'lumora-icon', name: 'arrow' %}</a></div>
+</section>
+{% schema %}
+{"name":"Lumora · Nossa essência","settings":[{"type":"image_picker","id":"image","label":"Foto"},{"type":"text","id":"eyebrow","label":"Texto superior","default":"MAIS DO QUE VESTIR. SENTIR."},{"type":"textarea","id":"title","label":"Título","default":"A SUA MELHOR VERSÃO\nÉ VOCÊ EM MOVIMENTO."},{"type":"richtext","id":"text","label":"Texto","default":"<p>Acreditamos na força dos pequenos movimentos. Na caminhada de manhã, na pausa para respirar, na coragem de começar de novo.</p><p>A Lumora nasce para fazer parte dessa rotina. Encontre peças que combinam com o seu treino, o seu estilo e o seu momento.</p>"},{"type":"text","id":"button","label":"Texto do botão","default":"Encontre seu movimento"},{"type":"url","id":"link","label":"Link do botão"}],"presets":[{"name":"Lumora · Nossa essência"}],"disabled_on":{"groups":["header","footer"]}}
+{% endschema %}

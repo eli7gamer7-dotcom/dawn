@@ -1,0 +1,34 @@
+{% liquid
+  assign card_variant = card_product.selected_or_first_available_variant
+  assign card_image = card_product.featured_image
+%}
+<article class="lm-product-card">
+  <div class="lm-product-media">
+    <a href="{{ card_product.url }}" class="lm-product-photo">
+      {% if card_image != blank %}
+        {{ card_image | image_url: width: 800 | image_tag: class: 'lm-product-image', loading: 'lazy', widths: '300, 450, 600, 800', sizes: '(min-width: 990px) 23vw, (min-width: 750px) 30vw, 70vw', alt: card_image.alt }}
+        {% if card_product.images[1] != blank %}{{ card_product.images[1] | image_url: width: 800 | image_tag: class: 'lm-product-image lm-product-image--second', loading: 'lazy', widths: '300, 450, 600, 800', sizes: '25vw', alt: card_product.images[1].alt }}{% endif %}
+      {% else %}{{ 'product-apparel-1' | placeholder_svg_tag: 'lm-placeholder' }}{% endif %}
+    </a>
+    {% unless card_product.available %}<span class="lm-product-badge">Esgotado</span>{% else %}{% if card_product.compare_at_price > card_product.price %}<span class="lm-product-badge">Oferta</span>{% endif %}{% endunless %}
+    <button class="lm-favorite lm-icon-button" type="button" hidden data-lm-js data-lm-favorite data-handle="{{ card_product.handle | escape }}" data-title="{{ card_product.title | escape }}" data-url="{{ card_product.url | escape }}" data-image="{% if card_image %}{{ card_image | image_url: width: 300 }}{% endif %}" data-price="{{ card_product.price | money | escape }}" aria-label="Salvar {{ card_product.title | escape }} nos favoritos" aria-pressed="false">{% render 'lumora-icon', name: 'heart' %}</button>
+  </div>
+  <div class="lm-product-info">
+    <a class="lm-product-title" href="{{ card_product.url }}">{{ card_product.title | escape }}</a>
+    {% if card_product.type != blank %}<span class="lm-product-type">{{ card_product.type | escape }}</span>{% endif %}
+    <div class="lm-product-bottom">
+      <div class="lm-product-price">{% if card_product.price_varies %}<small>A partir de</small>{% endif %}<strong>{{ card_product.price | money }}</strong>{% if card_product.compare_at_price > card_product.price %}<s>{{ card_product.compare_at_price | money }}</s>{% endif %}</div>
+      {% if card_product.available and card_product.has_only_default_variant and card_product.selling_plan_groups.size == 0 and card_variant.quantity_rule.min == 1 and card_variant.quantity_rule.increment == 1 %}
+        {% capture card_form_id %}lm-add-{{ section_id }}-{{ card_product.id }}{% endcapture %}
+        {% form 'product', card_product, id: card_form_id, class: 'lm-quick-form' %}
+          <input type="hidden" name="id" value="{{ card_variant.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" class="lm-icon-button lm-quick-add" aria-label="Adicionar {{ card_product.title | escape }} à sacola">{% render 'lumora-icon', name: 'bag' %}</button>
+        {% endform %}
+      {% else %}
+        <a class="lm-icon-button lm-quick-add" href="{{ card_product.url }}" aria-label="Ver tamanhos de {{ card_product.title | escape }}">{% render 'lumora-icon', name: 'arrow' %}</a>
+      {% endif %}
+    </div>
+    {% unless card_product.has_only_default_variant %}<a class="lm-product-options" href="{{ card_product.url }}">Escolher cor e tamanho <span>↗</span></a>{% endunless %}
+  </div>
+</article>

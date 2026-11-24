@@ -1,0 +1,20 @@
+<section id="lm-collections" class="lm-section lm-container" aria-labelledby="lm-collections-title-{{ section.id }}">
+  <div class="lm-section-head"><div><p class="lm-eyebrow">{{ section.settings.eyebrow | escape }}</p><h2 id="lm-collections-title-{{ section.id }}">{{ section.settings.title | escape }}</h2><p>{{ section.settings.text | escape }}</p></div></div>
+  <div class="lm-collections-grid">
+    {% for block in section.blocks %}
+      {% liquid
+        assign category_image = block.settings.image | default: block.settings.collection.featured_image
+      %}
+      <a class="lm-collection-card" href="{{ block.settings.collection.url | default: routes.all_products_collection_url }}" {{ block.shopify_attributes }}>
+        <div class="lm-collection-media">
+          {% if category_image != blank %}{{ category_image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '300, 500, 800', sizes: '(min-width: 990px) 23vw, 45vw', alt: block.settings.title }}{% else %}<div class="lm-lookbook lm-lookbook--{{ forloop.index0 | modulo: 4 | plus: 1 }}" role="img" aria-label="{{ block.settings.title | escape }}"></div>{% endif %}
+        </div>
+        <span class="lm-collection-icon">{% render 'lumora-icon', name: block.settings.icon %}</span>
+        <div class="lm-collection-info"><h3>{{ block.settings.title | escape }}</h3><p>{{ block.settings.text | escape }}</p><span class="lm-text-link">Explorar coleção {% render 'lumora-icon', name: 'arrow' %}</span></div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{"name":"Lumora · Coleções","settings":[{"type":"text","id":"eyebrow","label":"Texto superior","default":"PARA CADA VERSÃO DE VOCÊ"},{"type":"text","id":"title","label":"Título","default":"SEU RITMO. SUA COLEÇÃO."},{"type":"text","id":"text","label":"Descrição","default":"Do treino à pausa. Vista o que faz sentido para você."}],"blocks":[{"type":"collection","name":"Coleção","limit":4,"settings":[{"type":"text","id":"title","label":"Nome","default":"TREINO"},{"type":"text","id":"text","label":"Descrição","default":"Para dar o seu melhor, no seu tempo."},{"type":"collection","id":"collection","label":"Coleção"},{"type":"image_picker","id":"image","label":"Foto da coleção"},{"type":"select","id":"icon","label":"Ícone","options":[{"value":"fitness","label":"Academia"},{"value":"yoga","label":"Yoga"},{"value":"arrow","label":"Corrida"},{"value":"sun","label":"Lifestyle"}],"default":"fitness"}]}],"presets":[{"name":"Lumora · Coleções","blocks":[{"type":"collection","settings":{"title":"TREINO","text":"Para a energia de cada repetição.","icon":"fitness"}},{"type":"collection","settings":{"title":"YOGA & PILATES","text":"Respire. Alongue. Encontre seu equilíbrio.","icon":"yoga"}},{"type":"collection","settings":{"title":"CORRIDA","text":"Um passo de cada vez, no seu ritmo.","icon":"arrow"}},{"type":"collection","settings":{"title":"LIFESTYLE","text":"Conforto que continua depois do treino.","icon":"sun"}}]}],"disabled_on":{"groups":["header","footer"]}}
+{% endschema %}

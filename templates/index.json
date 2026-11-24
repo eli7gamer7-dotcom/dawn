@@ -1,75 +1,190 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "hero": {
+      "type": "lumora-hero",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "category_0": {
+          "type": "category",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "title": "Leggings"
           }
         },
-        "button": {
-          "type": "buttons",
+        "category_1": {
+          "type": "category",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "title": "Tops"
+          }
+        },
+        "category_2": {
+          "type": "category",
+          "settings": {
+            "title": "Conjuntos"
+          }
+        },
+        "category_3": {
+          "type": "category",
+          "settings": {
+            "title": "Shorts"
+          }
+        },
+        "category_4": {
+          "type": "category",
+          "settings": {
+            "title": "Acessórios"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "category_0",
+        "category_1",
+        "category_2",
+        "category_3",
+        "category_4"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "eyebrow": "ACTIVEWEAR PARA O SEU RITMO",
+        "heading": "MOVA-SE MAIS.\nSINTA-SE MELHOR.",
+        "text": "<p>Para mulheres que encontram força no movimento. Do primeiro alongamento ao último compromisso do dia.</p>"
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "products": {
+      "type": "lumora-products",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "eyebrow": "ENCONTRE SEU FAVORITO",
+        "title": "EM MOVIMENTO",
+        "text": "Escolha as peças que acompanham a sua rotina.",
+        "limit": 8
+      }
+    },
+    "collections": {
+      "type": "lumora-collections",
+      "blocks": {
+        "collection_0": {
+          "type": "collection",
+          "settings": {
+            "title": "TREINO",
+            "text": "Para a energia de cada repetição.",
+            "icon": "fitness"
+          }
+        },
+        "collection_1": {
+          "type": "collection",
+          "settings": {
+            "title": "YOGA & PILATES",
+            "text": "Respire. Alongue. Encontre seu equilíbrio.",
+            "icon": "yoga"
+          }
+        },
+        "collection_2": {
+          "type": "collection",
+          "settings": {
+            "title": "CORRIDA",
+            "text": "Um passo de cada vez, no seu ritmo.",
+            "icon": "arrow"
+          }
+        },
+        "collection_3": {
+          "type": "collection",
+          "settings": {
+            "title": "LIFESTYLE",
+            "text": "Conforto que continua depois do treino.",
+            "icon": "sun"
+          }
+        }
+      },
+      "block_order": [
+        "collection_0",
+        "collection_1",
+        "collection_2",
+        "collection_3"
+      ],
+      "settings": {
+        "eyebrow": "PARA CADA VERSÃO DE VOCÊ",
+        "title": "COLEÇÕES",
+        "text": "Do treino à pausa. Vista o que faz sentido para você."
+      }
+    },
+    "story": {
+      "type": "lumora-story",
+      "settings": {
+        "eyebrow": "MAIS DO QUE VESTIR. SENTIR.",
+        "title": "A SUA MELHOR VERSÃO\nÉ VOCÊ EM MOVIMENTO.",
+        "text": "<p>Acreditamos na força dos pequenos movimentos. Na caminhada de manhã, na pausa para respirar, na coragem de começar de novo.</p><p>A Lumora nasce para fazer parte dessa rotina. Encontre peças que combinam com o seu treino, o seu estilo e o seu momento.</p>",
+        "button": "Encontre seu movimento"
+      }
+    },
+    "faq": {
+      "type": "lumora-faq",
+      "blocks": {
+        "question_0": {
+          "type": "question",
+          "settings": {
+            "question": "Como escolher meu tamanho?",
+            "answer": "<p>Use o guia de tamanhos disponível na página do produto. Compare suas medidas com as informações da peça. Se a tabela ainda não estiver disponível, fale com a nossa equipe para confirmar antes de comprar.</p>"
+          }
+        },
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "Como consultar o frete e o prazo de entrega?",
+            "answer": "<p>O frete e a previsão de entrega aparecem no checkout, de acordo com seu endereço e os serviços disponíveis para o pedido.</p>"
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "Quais formas de pagamento posso usar?",
+            "answer": "<p>As opções disponíveis aparecem no checkout. Confira as condições e eventuais possibilidades de parcelamento antes de finalizar.</p>"
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "Como funcionam as trocas e devoluções?",
+            "answer": "<p>Consulte a política de trocas e devoluções da loja. Para solicitar atendimento sobre uma compra, envie seu número de pedido pelo formulário de contato.</p>"
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "Como cuidar das minhas peças?",
+            "answer": "<p>Siga a etiqueta de composição e lavagem de cada produto. Ela contém as orientações adequadas para o tecido da sua peça.</p>"
+          }
+        },
+        "question_5": {
+          "type": "question",
+          "settings": {
+            "question": "Como acompanho meu pedido?",
+            "answer": "<p>Use o link de acompanhamento enviado ao seu e-mail. Se você tem uma conta, também pode consultar seus pedidos por ela. Caso precise de ajuda, fale com a nossa equipe.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_0",
+        "question_1",
+        "question_2",
+        "question_3",
+        "question_4",
+        "question_5"
+      ],
+      "settings": {
+        "title": "ANTES DO PRÓXIMO MOVIMENTO."
+      }
+    },
+    "newsletter": {
+      "type": "lumora-newsletter",
+      "settings": {
+        "title": "FAÇA PARTE DO MOVIMENTO.",
+        "text": "Novas coleções, inspirações e novidades no seu e-mail."
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "hero",
+    "products",
+    "collections",
+    "story",
+    "faq",
+    "newsletter"
   ]
 }

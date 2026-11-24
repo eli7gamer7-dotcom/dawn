@@ -1,0 +1,44 @@
+<dialog id="lm-wishlist" class="lm-dialog lm-drawer" aria-labelledby="lm-wishlist-title">
+  <div class="lm-dialog-header"><div><p class="lm-eyebrow">GUARDADO PARA VOCÊ</p><h2 id="lm-wishlist-title">Meus favoritos</h2></div><button type="button" class="lm-icon-button" data-lm-close aria-label="Fechar favoritos">{% render 'lumora-icon', name: 'close' %}</button></div>
+  <div data-lm-wishlist-list></div><p data-lm-wishlist-empty class="lm-empty-state">Seu próximo favorito está por aqui.<br>Toque no coração de uma peça para salvá-la.</p><p class="lm-muted">Os favoritos ficam salvos neste navegador.</p><a class="lm-button" href="{{ routes.all_products_collection_url }}">Explorar peças {% render 'lumora-icon', name: 'arrow' %}</a>
+</dialog>
+<dialog id="lm-size-guide" class="lm-dialog" aria-labelledby="lm-size-title">
+  <div class="lm-dialog-header"><div><p class="lm-eyebrow">UM BOM CAIMENTO COMEÇA AQUI</p><h2 id="lm-size-title">Guia de tamanhos</h2></div><button class="lm-icon-button" type="button" data-lm-close aria-label="Fechar guia">{% render 'lumora-icon', name: 'close' %}</button></div>
+  {% if product.metafields.custom.size_guide != blank %}{{ product.metafields.custom.size_guide | metafield_tag }}
+  {% elsif settings.lumora_size_guide_page != blank %}<div class="rte">{{ settings.lumora_size_guide_page.content }}</div>
+  {% else %}
+    <p>Use uma fita métrica flexível, sem apertar o corpo, e compare suas medidas com as informações da peça.</p>
+    <div class="lm-measurements"><div><span>01</span><h3>Busto</h3><p>Meça ao redor da parte mais larga do busto, mantendo a fita nivelada.</p></div><div><span>02</span><h3>Cintura</h3><p>Meça a parte mais estreita da cintura, com o corpo relaxado.</p></div><div><span>03</span><h3>Quadril</h3><p>Com os pés juntos, passe a fita ao redor da parte mais larga do quadril.</p></div></div>
+    {% if settings.lumora_size_rows != blank %}
+      <div class="lm-table-wrap"><table><caption>Medidas de referência fornecidas pela loja, em centímetros</caption><thead><tr><th scope="col">Tamanho</th><th scope="col">Busto</th><th scope="col">Cintura</th><th scope="col">Quadril</th></tr></thead><tbody>{% assign size_lines = settings.lumora_size_rows | newline_to_br | split: '<br />' %}{% for size_line in size_lines %}{% assign values = size_line | strip | split: ';' %}{% if values.size == 4 %}<tr>{% for value in values %}{% if forloop.first %}<th scope="row">{{ value | strip | escape }}</th>{% else %}<td>{{ value | strip | escape }}</td>{% endif %}{% endfor %}</tr>{% endif %}{% endfor %}</tbody></table></div>
+    {% else %}<p class="lm-info-note">As medidas variam de acordo com a modelagem e o fabricante. Fale com a equipe para confirmar a tabela da peça antes de escolher seu tamanho.</p>{% endif %}
+  {% endif %}
+  <button type="button" class="lm-button" data-lm-open="lm-contact">Preciso de ajuda com meu tamanho {% render 'lumora-icon', name: 'arrow' %}</button>
+</dialog>
+<dialog id="lm-care" class="lm-dialog" aria-labelledby="lm-care-title">
+  <div class="lm-dialog-header"><h2 id="lm-care-title">Cuide do que move você.</h2><button class="lm-icon-button" type="button" data-lm-close aria-label="Fechar cuidados">{% render 'lumora-icon', name: 'close' %}</button></div>
+  {% if product.metafields.custom.fabric_care != blank %}{{ product.metafields.custom.fabric_care | metafield_tag }}{% else %}<p>Siga as instruções da etiqueta de cada peça: elas consideram a composição e a construção do tecido.</p><p>Antes de lavar, confira a temperatura indicada, as orientações sobre alvejante, secagem e uso de ferro. Separe peças por cor e evite guardar roupas úmidas.</p><p>Tem alguma dúvida sobre um produto? Fale com a nossa equipe antes de aplicar qualquer tratamento.</p>{% endif %}
+</dialog>
+<dialog id="lm-help" class="lm-dialog" aria-labelledby="lm-help-title">
+  <div class="lm-dialog-header"><h2 id="lm-help-title">Entrega e pós-compra</h2><button class="lm-icon-button" type="button" data-lm-close aria-label="Fechar informações">{% render 'lumora-icon', name: 'close' %}</button></div>
+  <h3>Frete e prazo</h3><p>{{ settings.lumora_shipping_notice | escape }}. Os serviços disponíveis, os valores e a previsão de entrega aparecem no checkout de acordo com o endereço do pedido.</p>
+  {% if shop.shipping_policy != blank %}<a class="lm-text-link" href="{{ shop.shipping_policy.url }}">Ler política de entrega {% render 'lumora-icon', name: 'arrow' %}</a>{% endif %}
+  <h3>Trocas e devoluções</h3>{% if shop.refund_policy != blank %}<p>Consulte os prazos e as condições na política da loja.</p><a class="lm-text-link" href="{{ shop.refund_policy.url }}">Ler política de trocas e devoluções {% render 'lumora-icon', name: 'arrow' %}</a>{% else %}<p>Para conhecer as condições ou solicitar atendimento sobre uma compra, fale com a nossa equipe e informe o número do pedido.</p>{% endif %}
+  <h3>Acompanhe seu pedido</h3><p>Consulte o link de acompanhamento enviado ao seu e-mail após a compra.{% if shop.customer_accounts_enabled %} Você também pode acessar <a href="{{ routes.account_url }}">sua conta</a>.{% endif %}</p>
+  <button type="button" class="lm-button" data-lm-open="lm-contact">Falar sobre meu pedido {% render 'lumora-icon', name: 'arrow' %}</button>
+</dialog>
+<dialog id="lm-contact" class="lm-dialog" aria-labelledby="lm-contact-title">
+  <div class="lm-dialog-header"><div><p class="lm-eyebrow">ESTAMOS POR AQUI</p><h2 id="lm-contact-title">Como podemos ajudar?</h2></div><button class="lm-icon-button" type="button" data-lm-close aria-label="Fechar atendimento">{% render 'lumora-icon', name: 'close' %}</button></div>
+  {% form 'contact', id: 'lm-contact-form', class: 'lm-contact-form' %}
+    {% if form.posted_successfully? %}<p role="status" class="lm-form-message" data-lm-form-status>Mensagem enviada. Nossa equipe responderá pelo e-mail informado.</p>{% endif %}
+    {% if form.errors %}<div role="alert" class="lm-form-message" data-lm-form-status>{{ form.errors | default_errors }}</div>{% endif %}
+    <label for="lm-contact-name">Seu nome</label><input type="text" id="lm-contact-name" name="contact[name]" autocomplete="name" value="{{ form.name | default: customer.name | escape }}" required>
+    <label for="lm-contact-email">E-mail</label><input type="email" id="lm-contact-email" name="contact[email]" autocomplete="email" value="{{ form.email | default: customer.email | escape }}" required {% if form.errors contains 'email' %}aria-invalid="true"{% endif %}>
+    <label for="lm-contact-order">Número do pedido <span>(opcional)</span></label><input type="text" id="lm-contact-order" name="contact[Pedido]" placeholder="Ex.: #1001">
+    <label for="lm-contact-message">Sua mensagem</label><textarea id="lm-contact-message" name="contact[body]" rows="4" required>{{ form.body | escape }}</textarea>
+    <p class="lm-muted">Usaremos seus dados para responder a esta solicitação.{% if shop.privacy_policy != blank %} <a href="{{ shop.privacy_policy.url }}">Política de privacidade</a>.{% endif %}</p>
+    <button type="submit" class="lm-button">Enviar mensagem {% render 'lumora-icon', name: 'arrow' %}</button>
+  {% endform %}
+</dialog>
+<div class="lm-toast" role="status" aria-live="polite" aria-atomic="true" data-lm-toast hidden></div>
+<noscript><p class="lm-container">Ative o JavaScript para usar favoritos e abrir os guias de atendimento.{% if settings.lumora_contact_email != blank %} Entre em contato: <a href="mailto:{{ settings.lumora_contact_email | escape }}">{{ settings.lumora_contact_email | escape }}</a>.{% endif %}</p></noscript>
