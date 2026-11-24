@@ -49,11 +49,9 @@
           }
         },
         "care": {
-          "type": "collapsible_tab",
+          "type": "custom_liquid",
           "settings": {
-            "heading": "Composição e cuidados",
-            "icon": "none",
-            "content": "<p>Consulte a composição na descrição do produto e siga as instruções da etiqueta. Precisa de informações sobre a peça? Fale com a nossa equipe antes de comprar.</p>"
+            "custom_liquid": "<div class=\"lm-faq-items\"><details><summary>Composição e cuidados<span aria-hidden=\"true\">+</span></summary><div class=\"rte\">{% if product.metafields.custom.fabric_care != blank %}{{ product.metafields.custom.fabric_care | metafield_tag }}{% else %}<p>Consulte a composição na descrição do produto e siga as instruções da etiqueta. Se tiver dúvidas, fale com a equipe antes de comprar.</p>{% endif %}</div></details></div>"
           }
         },
         "shipping": {
