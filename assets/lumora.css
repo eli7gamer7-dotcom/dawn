@@ -280,21 +280,20 @@ body.lm-store{background:var(--lm-paper);color:var(--lm-ink);letter-spacing:0;fo
  .lm-header .lm-brand .lm-musa-word small{font-size:6px;letter-spacing:3px;margin-top:8px;padding-left:1px}
 }
 
-/* Musa campaign portrait: studio palette and clear space around the face. */
+/* One continuous campaign background behind header, copy and model. */
 .lm-hero--musa{background:#b39383}
 .lm-hero--musa .lm-hero-seal{display:none}
+.lm-hero--musa .lm-hero-media{inset:0;width:100%;height:100%;background:transparent}
+.lm-hero--musa .lm-hero-image{width:100%;height:100%;object-fit:cover;object-position:right top}
+.lm-hero--musa .lm-hero-media::after{display:none}
+.lm-hero--musa .lm-hero-shade{inset:0;background:linear-gradient(90deg,rgba(66,40,31,.22),rgba(66,40,31,.06) 48%,transparent 72%)}
 @media(min-width:1101px){
- .lm-hero--musa .lm-hero-media{top:80px;background:#b39383}
- .lm-hero--musa .lm-hero-image{object-fit:contain;object-position:right bottom}
- .lm-hero--musa .lm-hero-media::after{background:linear-gradient(90deg,#b39383 0%,#b39383 12%,transparent 43%)}
  .lm-hero--musa .lm-hero-benefits{right:clamp(300px,25vw,500px)}
 }
 @media(min-width:750px) and (max-width:1100px){
- .lm-hero--musa .lm-hero-media{top:80px}
  .lm-hero--musa .lm-hero-image{object-position:75% top}
 }
 @media(max-width:749px){
- .lm-hero--musa .lm-hero-media{top:80px;height:340px;bottom:auto}
- .lm-hero--musa .lm-hero-image{object-position:right top}
- .lm-hero--musa .lm-hero-shade{background:linear-gradient(0deg,#b39383 45%,transparent 75%)}
+ .lm-hero--musa .lm-hero-image{object-position:78% top}
+ .lm-hero--musa .lm-hero-shade{background:linear-gradient(0deg,rgba(91,60,46,.88),rgba(91,60,46,.68) 40%,rgba(91,60,46,.12) 75%,transparent)}
 }
