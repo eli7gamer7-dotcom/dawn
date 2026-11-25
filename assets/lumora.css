@@ -279,3 +279,22 @@ body.lm-store{background:var(--lm-paper);color:var(--lm-ink);letter-spacing:0;fo
  .lm-header .lm-brand .lm-musa-word{font-size:22px;letter-spacing:4px}
  .lm-header .lm-brand .lm-musa-word small{font-size:6px;letter-spacing:3px;margin-top:8px;padding-left:1px}
 }
+
+/* Musa campaign portrait: studio palette and clear space around the face. */
+.lm-hero--musa{background:#b39383}
+.lm-hero--musa .lm-hero-seal{display:none}
+@media(min-width:1101px){
+ .lm-hero--musa .lm-hero-media{top:80px;background:#b39383}
+ .lm-hero--musa .lm-hero-image{object-fit:contain;object-position:right bottom}
+ .lm-hero--musa .lm-hero-media::after{background:linear-gradient(90deg,#b39383 0%,#b39383 12%,transparent 43%)}
+ .lm-hero--musa .lm-hero-benefits{right:clamp(300px,25vw,500px)}
+}
+@media(min-width:750px) and (max-width:1100px){
+ .lm-hero--musa .lm-hero-media{top:80px}
+ .lm-hero--musa .lm-hero-image{object-position:75% top}
+}
+@media(max-width:749px){
+ .lm-hero--musa .lm-hero-media{top:80px;height:340px;bottom:auto}
+ .lm-hero--musa .lm-hero-image{object-position:right top}
+ .lm-hero--musa .lm-hero-shade{background:linear-gradient(0deg,#b39383 45%,transparent 75%)}
+}

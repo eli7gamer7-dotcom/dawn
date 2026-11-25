@@ -1,9 +1,9 @@
-<section class="lm-hero">
+<section class="lm-hero lm-hero--musa">
   <div class="lm-hero-media">
     {% if section.settings.image != blank %}
       {{ section.settings.image | image_url: width: 2400 | image_tag: class: 'lm-hero-image', widths: '750, 1100, 1500, 2000, 2400', sizes: '100vw', loading: 'eager', fetchpriority: 'high', alt: section.settings.image.alt }}
     {% else %}
-      <img class="lm-hero-image" src="{{ 'lumora-hero.png' | asset_url }}" width="1536" height="1024" alt="Mulher com conjunto fitness malva, sentada em uma escadaria ao sol" fetchpriority="high" loading="eager">
+      <img class="lm-hero-image" src="{{ 'lumora-hero.png' | asset_url }}" width="1536" height="1024" alt="Mulher sorrindo com conjunto fitness rosa em um estúdio com fundo areia e rosé" fetchpriority="high" loading="eager">
     {% endif %}
   </div>
   <div class="lm-hero-shade"></div>
