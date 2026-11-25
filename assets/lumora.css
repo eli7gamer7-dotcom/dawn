@@ -263,3 +263,8 @@ body.lm-store{background:var(--lm-paper);color:var(--lm-ink);letter-spacing:0;fo
 /* Center a single collection without stretching its photograph. */
 .lm-collections-grid:has(> .lm-collection-card:only-child){grid-template-columns:minmax(0,320px);justify-content:center}
 @media(max-width:749px){.lm-collections-grid:has(> .lm-collection-card:only-child){grid-template-columns:minmax(0,320px)}}
+
+/* Dark backing keeps the generated white Musa logo legible. */
+.lm-brand .lm-musa-generated{background:#292927;border-radius:10px;padding:4px 8px;width:160px;height:88px;max-height:88px}
+.lm-footer .lm-brand .lm-musa-generated{width:160px;height:108px;max-height:108px}
+@media(max-width:749px){.lm-header .lm-brand .lm-musa-generated{width:106px;height:66px;max-width:106px;max-height:66px;padding:3px 5px}}

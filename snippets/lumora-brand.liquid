@@ -7,5 +7,5 @@
 {% if brand_logo != blank %}
   {{ brand_logo | image_url: width: 440 | image_tag: class: 'lm-logo-image lm-musa-logo', widths: '110, 220, 440', sizes: '(max-width: 749px) 110px, 160px', alt: brand_alt }}
 {% else %}
-  <span class="lm-brand-word lm-musa-word">{{ brand_name | escape }}<small>{{ brand_tagline | escape }}</small></span>
+  <img class="lm-logo-image lm-musa-logo lm-musa-generated" src="{{ 'musa-fitness-logo.png' | asset_url }}" width="1536" height="1024" alt="{{ brand_alt | escape }}" loading="eager">
 {% endif %}
