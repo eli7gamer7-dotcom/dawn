@@ -66,37 +66,10 @@
             "text": "Para a energia de cada repetição.",
             "icon": "fitness"
           }
-        },
-        "collection_1": {
-          "type": "collection",
-          "settings": {
-            "title": "YOGA & PILATES",
-            "text": "Respire. Alongue. Encontre seu equilíbrio.",
-            "icon": "yoga"
-          }
-        },
-        "collection_2": {
-          "type": "collection",
-          "settings": {
-            "title": "CORRIDA",
-            "text": "Um passo de cada vez, no seu ritmo.",
-            "icon": "arrow"
-          }
-        },
-        "collection_3": {
-          "type": "collection",
-          "settings": {
-            "title": "LIFESTYLE",
-            "text": "Conforto que continua depois do treino.",
-            "icon": "sun"
-          }
         }
       },
       "block_order": [
-        "collection_0",
-        "collection_1",
-        "collection_2",
-        "collection_3"
+        "collection_0"
       ],
       "settings": {
         "eyebrow": "PARA CADA VERSÃO DE VOCÊ",
@@ -109,7 +82,7 @@
       "settings": {
         "eyebrow": "MAIS DO QUE VESTIR. SENTIR.",
         "title": "A SUA MELHOR VERSÃO\nÉ VOCÊ EM MOVIMENTO.",
-        "text": "<p>Acreditamos na força dos pequenos movimentos. Na caminhada de manhã, na pausa para respirar, na coragem de começar de novo.</p><p>A Lumora nasce para fazer parte dessa rotina. Encontre peças que combinam com o seu treino, o seu estilo e o seu momento.</p>",
+        "text": "<p>Acreditamos na força dos pequenos movimentos. Na caminhada de manhã, na pausa para respirar, na coragem de começar de novo.</p><p>A Musa nasce para fazer parte dessa rotina. Encontre peças que combinam com o seu treino, o seu estilo e o seu momento.</p>",
         "button": "Encontre seu movimento"
       }
     },

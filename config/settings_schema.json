@@ -1,7 +1,7 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Lumora Activewear",
+    "theme_name": "Musa Fitness",
     "theme_version": "1.0.0",
     "theme_author": "Shopify",
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
@@ -1468,7 +1468,7 @@
     ]
   },
   {
-    "name": "Lumora · Loja fitness",
+    "name": "Musa · Loja fitness",
     "settings": [
       {
         "type": "header",
@@ -1478,18 +1478,19 @@
         "type": "text",
         "id": "lumora_brand_name",
         "label": "Nome da marca",
-        "default": "LUMORA"
+        "default": "Musa"
       },
       {
         "type": "text",
         "id": "lumora_brand_tagline",
         "label": "Complemento da marca",
-        "default": "ACTIVEWEAR"
+        "default": "FITNESS"
       },
       {
         "type": "image_picker",
         "id": "lumora_logo",
-        "label": "Logo personalizada"
+        "label": "Logo original da Musa",
+        "info": "A mesma imagem aparece no cabeçalho e no rodapé. Você também pode usar o campo Logo padrão do tema."
       },
       {
         "type": "header",

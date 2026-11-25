@@ -24,12 +24,12 @@
       {% endfor %}
     </div>
     <a class="lm-hero-note" href="{{ section.settings.link | default: routes.all_products_collection_url }}">
-      <span class="lm-note-icon">{% render 'lumora-icon', name: 'leaf' %}</span>
+      <span class="lm-note-icon">{% render 'lumora-icon', name: 'heart' %}</span>
       <span><strong>Seu movimento começa aqui.</strong><small>Encontre peças para o seu ritmo.</small></span>
       {% render 'lumora-icon', name: 'arrow' %}
     </a>
   </div>
-  <div class="lm-hero-seal" aria-hidden="true"><span>TREINE COM ALMA</span>{% render 'lumora-icon', name: 'leaf' %}<span>VIVA EM MOVIMENTO</span></div>
+  <div class="lm-hero-seal" aria-hidden="true"><span>TREINE COM ALMA</span>{% render 'lumora-icon', name: 'heart' %}<span>VIVA EM MOVIMENTO</span></div>
   <aside class="lm-hero-benefits" aria-label="Informações da compra">
     <div>{% render 'lumora-icon', name: 'truck' %}<span><strong>Entrega para você</strong><small>{{ settings.lumora_shipping_notice | escape }}</small></span></div>
     <div><button type="button" data-lm-open="lm-help" aria-label="Consultar informações de trocas">{% render 'lumora-icon', name: 'return' %}<span><strong>Trocas e devoluções</strong><small>Veja as condições da loja</small></span></button></div>
@@ -38,5 +38,5 @@
   </aside>
 </section>
 {% schema %}
-{"name":"Lumora · Destaque","settings":[{"type":"image_picker","id":"image","label":"Imagem principal"},{"type":"text","id":"eyebrow","label":"Texto superior","default":"ACTIVEWEAR PARA O SEU RITMO"},{"type":"textarea","id":"heading","label":"Título","default":"MOVA-SE MAIS.\nSINTA-SE MELHOR."},{"type":"richtext","id":"text","label":"Descrição","default":"<p>Para mulheres que encontram força no movimento. Do primeiro alongamento ao último compromisso do dia.</p>"},{"type":"url","id":"link","label":"Link do destaque inferior"}],"blocks":[{"type":"category","name":"Categoria","limit":6,"settings":[{"type":"text","id":"title","label":"Nome","default":"Leggings"},{"type":"collection","id":"collection","label":"Coleção"}]}],"presets":[{"name":"Lumora · Destaque","blocks":[{"type":"category","settings":{"title":"Leggings"}},{"type":"category","settings":{"title":"Tops"}},{"type":"category","settings":{"title":"Conjuntos"}},{"type":"category","settings":{"title":"Shorts"}},{"type":"category","settings":{"title":"Acessórios"}}]}],"disabled_on":{"groups":["header","footer"]}}
+{"name":"Musa · Destaque","settings":[{"type":"image_picker","id":"image","label":"Imagem principal"},{"type":"text","id":"eyebrow","label":"Texto superior","default":"ACTIVEWEAR PARA O SEU RITMO"},{"type":"textarea","id":"heading","label":"Título","default":"MOVA-SE MAIS.\nSINTA-SE MELHOR."},{"type":"richtext","id":"text","label":"Descrição","default":"<p>Para mulheres que encontram força no movimento. Do primeiro alongamento ao último compromisso do dia.</p>"},{"type":"url","id":"link","label":"Link do destaque inferior"}],"blocks":[{"type":"category","name":"Categoria","limit":6,"settings":[{"type":"text","id":"title","label":"Nome","default":"Leggings"},{"type":"collection","id":"collection","label":"Coleção"}]}],"presets":[{"name":"Musa · Destaque","blocks":[{"type":"category","settings":{"title":"Leggings"}},{"type":"category","settings":{"title":"Tops"}},{"type":"category","settings":{"title":"Conjuntos"}},{"type":"category","settings":{"title":"Shorts"}},{"type":"category","settings":{"title":"Acessórios"}}]}],"disabled_on":{"groups":["header","footer"]}}
 {% endschema %}

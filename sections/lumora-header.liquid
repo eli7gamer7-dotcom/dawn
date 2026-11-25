@@ -11,10 +11,8 @@
         <button type="button" data-lm-open="lm-contact">Fale com a gente</button>
       </nav>
     </details>
-    <a class="lm-brand" href="{{ routes.root_url }}" aria-label="{{ settings.lumora_brand_name | default: 'Lumora' | escape }} — início">
-      {% if settings.lumora_logo != blank %}
-        {{ settings.lumora_logo | image_url: width: 440 | image_tag: class: 'lm-logo-image', widths: '180, 220, 440', sizes: '220px', alt: shop.name }}
-      {% else %}{% render 'lumora-brand' %}{% endif %}
+    <a class="lm-brand" href="{{ routes.root_url }}" aria-label="{{ settings.lumora_brand_name | default: 'Musa' | escape }} — início">
+      {% render 'lumora-brand' %}
     </a>
     <nav class="lm-desktop-nav" aria-label="Menu principal">
       {% if section.settings.menu != blank %}
@@ -47,5 +45,5 @@
   </div>
 </header>
 {% schema %}
-{"name":"Lumora · Cabeçalho","settings":[{"type":"link_list","id":"menu","label":"Menu personalizado","info":"Sem seleção, usa os links padrão da Lumora."}],"enabled_on":{"groups":["header"]}}
+{"name":"Musa · Cabeçalho","settings":[{"type":"link_list","id":"menu","label":"Menu personalizado","info":"Sem seleção, usa os links padrão da Musa."}],"enabled_on":{"groups":["header"]}}
 {% endschema %}
