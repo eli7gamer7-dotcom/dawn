@@ -1,6 +1,6 @@
 <section class="lm-story lm-container" id="lm-about">
   <div class="lm-story-visual">
-    {% if section.settings.image != blank %}{{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '500, 800, 1200', sizes: '(min-width: 750px) 45vw, 100vw', alt: section.settings.image.alt }}{% else %}<div class="lm-lookbook lm-lookbook--3" role="img" aria-label="Mulher em movimento com conjunto fitness verde oliva"></div>{% endif %}
+    {% if section.settings.image != blank %}{{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '500, 800, 1200', sizes: '(min-width: 750px) 45vw, 100vw', alt: section.settings.image.alt }}{% else %}<img class="lm-story-image" src="{{ 'musa-story-walking.png' | asset_url }}" width="1536" height="1024" loading="lazy" alt="Mulher caminhando com macacão fitness azul-marinho em um estúdio areia e rosé">{% endif %}
     <span class="lm-story-label">MOVE WITH PURPOSE.</span>
   </div>
   <div class="lm-story-content"><p class="lm-eyebrow">{{ section.settings.eyebrow | escape }}</p><h2>{{ section.settings.title | escape | newline_to_br }}</h2><div class="rte">{{ section.settings.text }}</div><a class="lm-button" href="{{ section.settings.link | default: routes.all_products_collection_url }}">{{ section.settings.button | escape }} {% render 'lumora-icon', name: 'arrow' %}</a></div>
