@@ -1,11 +1,6 @@
 {% liquid
-  assign brand_logo = settings.lumora_logo | default: settings.logo
   assign brand_name = settings.lumora_brand_name | default: 'Musa'
   assign brand_tagline = settings.lumora_brand_tagline | default: 'FITNESS'
-  assign brand_alt = brand_name | append: ' ' | append: brand_tagline
 %}
-{% if brand_logo != blank %}
-  {{ brand_logo | image_url: width: 440 | image_tag: class: 'lm-logo-image lm-musa-logo', widths: '110, 220, 440', sizes: '(max-width: 749px) 110px, 160px', alt: brand_alt }}
-{% else %}
-  <img class="lm-logo-image lm-musa-logo lm-musa-generated" src="{{ 'musa-fitness-logo.png' | asset_url }}" width="1536" height="1024" alt="{{ brand_alt | escape }}" loading="eager">
-{% endif %}
+<img class="lm-musa-symbol" src="{{ 'musa-fitness-symbol.png' | asset_url }}" width="1792" height="896" alt="" aria-hidden="true" loading="eager">
+<span class="lm-brand-word lm-musa-word">{{ brand_name | escape }}<small>{{ brand_tagline | escape }}</small></span>

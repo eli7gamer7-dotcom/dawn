@@ -264,7 +264,18 @@ body.lm-store{background:var(--lm-paper);color:var(--lm-ink);letter-spacing:0;fo
 .lm-collections-grid:has(> .lm-collection-card:only-child){grid-template-columns:minmax(0,320px);justify-content:center}
 @media(max-width:749px){.lm-collections-grid:has(> .lm-collection-card:only-child){grid-template-columns:minmax(0,320px)}}
 
-/* Dark backing keeps the generated white Musa logo legible. */
-.lm-brand .lm-musa-generated{background:#292927;border-radius:10px;padding:4px 8px;width:160px;height:88px;max-height:88px}
-.lm-footer .lm-brand .lm-musa-generated{width:160px;height:108px;max-height:108px}
-@media(max-width:749px){.lm-header .lm-brand .lm-musa-generated{width:106px;height:66px;max-width:106px;max-height:66px;padding:3px 5px}}
+
+/* Horizontal Musa lockup: transparent symbol, spaced wordmark and subtitle. */
+.lm-header .lm-brand,.lm-footer .lm-brand{gap:12px;background:transparent;border:0;padding:0;border-radius:0}
+.lm-brand .lm-musa-symbol{display:block;flex-shrink:0;width:64px;height:44px;object-fit:contain;background:transparent;border:0;border-radius:0;padding:0;filter:none;box-shadow:none}
+.lm-brand .lm-musa-word{font-family:Arial,Helvetica,sans-serif;font-size:29px;font-weight:400;letter-spacing:7px;line-height:1;text-transform:uppercase}
+.lm-brand .lm-musa-word small{font-family:Arial,Helvetica,sans-serif;font-size:8px;font-weight:400;letter-spacing:6px;line-height:1;margin-top:11px;padding-left:2px;text-align:center}
+.lm-footer .lm-brand .lm-musa-symbol{width:50px;height:36px}
+.lm-footer .lm-brand .lm-musa-word{font-size:23px;letter-spacing:5px}
+.lm-footer .lm-brand .lm-musa-word small{font-size:6px;letter-spacing:4px;margin-top:9px}
+@media(max-width:749px){
+ .lm-header .lm-brand{gap:8px}
+ .lm-header .lm-brand .lm-musa-symbol{width:42px;height:32px}
+ .lm-header .lm-brand .lm-musa-word{font-size:22px;letter-spacing:4px}
+ .lm-header .lm-brand .lm-musa-word small{font-size:6px;letter-spacing:3px;margin-top:8px;padding-left:1px}
+}
