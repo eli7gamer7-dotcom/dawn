@@ -297,3 +297,15 @@ body.lm-store{background:var(--lm-paper);color:var(--lm-ink);letter-spacing:0;fo
  .lm-hero--musa .lm-hero-image{object-position:78% top}
  .lm-hero--musa .lm-hero-shade{background:linear-gradient(0deg,rgba(91,60,46,.88),rgba(91,60,46,.68) 40%,rgba(91,60,46,.12) 75%,transparent)}
 }
+
+/* Full-length campaign photo: smaller model with head-to-toe safe framing. */
+@media(min-width:750px){
+ .lm-hero--musa .lm-hero-image{object-position:right top}
+ .lm-hero--musa .lm-hero-benefits{right:clamp(20px,2.5vw,56px);width:clamp(200px,17vw,270px)}
+}
+@media(max-width:749px){
+ .lm-hero--musa{background:#b58e7c}
+ .lm-hero--musa .lm-hero-media{inset:0 0 auto;height:420px;mask-image:linear-gradient(#000 90%,transparent);-webkit-mask-image:linear-gradient(#000 90%,transparent)}
+ .lm-hero--musa .lm-hero-image{object-position:78% top}
+ .lm-hero--musa .lm-hero-shade{background:linear-gradient(0deg,rgba(91,60,46,.25),transparent 65%)}
+}

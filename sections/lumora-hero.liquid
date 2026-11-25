@@ -3,7 +3,7 @@
     {% if section.settings.image != blank %}
       {{ section.settings.image | image_url: width: 2400 | image_tag: class: 'lm-hero-image', widths: '750, 1100, 1500, 2000, 2400', sizes: '100vw', loading: 'eager', fetchpriority: 'high', alt: section.settings.image.alt }}
     {% else %}
-      <img class="lm-hero-image" src="{{ 'lumora-hero.png' | asset_url }}" width="1536" height="1024" alt="Mulher sorrindo com conjunto fitness rosa em um estúdio com fundo areia e rosé" fetchpriority="high" loading="eager">
+      <img class="lm-hero-image" src="{{ 'musa-hero-full-body.png' | asset_url }}" width="1942" height="809" alt="Mulher de corpo inteiro com conjunto fitness rosa e tênis brancos em um estúdio areia e rosé" fetchpriority="high" loading="eager">
     {% endif %}
   </div>
   <div class="lm-hero-shade"></div>
